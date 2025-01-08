@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="map" style="width: 100%; height: 500px;"></div>
+    <script>
+        var map = L.map("map", {
+            center: [48.0, 37.0],
+            zoom: 5,
+        });
+
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            attribution: "&copy; OpenStreetMap contributors",
+        }).addTo(map);
+
+        var chitgarMarker = L.marker([35.745061, 51.213648]).addTo(map);
+        chitgarMarker.bindPopup("<b>Chitgar Lake</b><br>Coordinates: 35.745061, 51.213648");
+
+        var finlandMarker = L.marker([61.497752, 23.761025]).addTo(map);
+        finlandMarker.bindPopup("<b>Reservoir in Finland</b><br>Coordinates: 61.497752, 23.761025");
+    </script>
+</body>
+</html>
